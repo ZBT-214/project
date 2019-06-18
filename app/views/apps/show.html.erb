@@ -19,7 +19,7 @@
 <div class="card-body">
 		<div class="row slider">
 			<div class="ss">
-				<% (0...@app.versions.last.screenshots.count).each do |ss| %>
+				<%	 (0...@app.versions.last.screenshots.count).each do |ss| %>
 				<%= image_tag @app.versions.last.screenshots[ss], "data-enlargable" => "true", id: "entrance", class: "screenshots show-card #{@app.versions.last.screenshots[ss].present?}"  %>
 	     		<% end %>
 			</div>
