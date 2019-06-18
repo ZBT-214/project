@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+	<strong>Versin ID</strong>
+	<%= @version.id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @version.name %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @version.code %>
+</p>
+
+<p>
+  <strong>File</strong>
+  <%= @version.apk.attached? %>
+</p>
+
+<p>
+  <strong>App:</strong>
+  <%= @version.app.name %>
+</p>
+
+<p>
+  <strong>File</strong> 
+  <%= rails_blob_path(@version.apk, disposition: "attachment") if @version.apk.attached? %>
+  <%= @version.apk.download if @version.apk.attached? %>
+</p>
+
+<%= link_to 'Edit', edit_version_path(@version) %> |
+<%= link_to 'Back', versions_path %>

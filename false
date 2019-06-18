@@ -1,0 +1,2 @@
+      invoke  active_record
+      remove    db/migrate/20190530051413_add_is_public_to_apps.rb

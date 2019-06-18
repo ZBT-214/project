@@ -1,0 +1,85 @@
+<p id="notice"><%= notice %></p>
+
+<div class="header">
+   Apps <br> <br>
+   Download latest versions of mobile apps from Zwenexsys.
+</div>
+<br>
+
+<div class="app-index-card">
+<div class="card apps">
+  
+  <% if user_signed_in? %>
+  <p class="app-status">My Apps</p>
+  <div class="row">
+    <% current_user.apps.each do |app| %>
+    <div class="col-md-3">
+      <div  class="card showcase">
+        <%= link_to app, class: "link-app" do %>
+        <div class="card-img-top"><%= image_tag (app.versions.last.image),class: "app-logo" if app.versions.last.image.attached? %></div>        
+        <div class="card-body">
+          <p class="card-title">
+          <span class="app-name"><%= app.name %></span>
+          </p>
+          <p class="card-text">
+          <%= app.shortdescription class: "app-sd" %>
+          </p>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  </div>
+
+<hr width="100%" style="border-top: 1px solid #1D65A6">
+
+<div><p class="app-status">Public Apps</p></div>
+<div class="row"> 
+  <% @public_apps = @apps - current_user.apps %>
+  <% @public_apps.each do |app| %>
+    <div class="col-md-3">
+      <div  class="card showcase">
+        <%= link_to app, class: "link-app" do %>
+        <div class="card-img-top"><%= image_tag (app.versions.last.image), class: "app-logo" if app.versions.last.image.attached? %></div>        
+        <div class="card-body">
+          <p class="card-title">
+            <span class="app-name"><%= app.name %></span>
+          </p>
+        <p class="card-text app-sd">
+          <%= app.shortdescription %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+  <% else %>
+
+    <div class="row">
+    <% @apps.each do |app| %>
+    <div class="col-md-3">
+      <div  class="card showcase">
+        <%= link_to app, class: "link-app" do %>
+        <div class="card-img-top"><%= image_tag (app.versions.last.image), class: "app-logo" if app.versions.last.image.attached? %></div>        
+        <div class="card-body">
+          <p class="card-title">
+          <span class="app-name"><%= app.name %></span>
+          </p>
+          <p class="card-text app-sd">
+          <%= app.shortdescription %>
+          </p>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  </div>
+
+<% end %>
+
+</div>
+</div>
+<br>
+
+

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar fixed-top navbar-light nav-bg">
+      <div class="container-fluid">
+        <div>
+          <%= link_to image_tag("logo_zwenex.png", class: 'c-logo'), root_path, class: "c-logo-link" %>
+        </div>
+        <ul class="nav navbar-nav">
+          <li>
+            <% if !user_signed_in? %>
+            <%= link_to "Log in", new_user_session_path, class: "btn btn-primary link status" %>
+            <% end %>
+            <% if user_signed_in? %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-primary link status" %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <br>
+    <br>
+  
+  <%= yield %>
+
+  <div class="copyright" style="text-align: center;">
+    <p><%= "© Zwenexsys " + "#{Time.current.year}" %></p>
+  </div>
+  </body>
+</html>
+<br>

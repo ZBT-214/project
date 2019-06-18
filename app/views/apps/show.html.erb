@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p id="notice"><%= notice %></p>
+<div class="card app-show-card">
+
+<div class="card-img-top show-card">
+	<%= image_tag(@app.versions.last.image, class: 'logo')  if @app.versions.last.image.attached? %> <br>
+	<p style="font-family: Raleway; font-size: 18px; font-weight: 550"><%= @app.name %></p> <br> <br>
+	<div>
+		<%= link_to 'Download', rails_blob_path(@app.versions.last.apk, disposition: :attachment), class: "link btn btn-primary" if @app.versions.last.apk.attached? %>
+	</div>	
+</div>
+
+<div class="card-body">
+		<div class="row slider">
+			<div class="ss">
+				<% (0...@app.versions.last.screenshots.count).each do |ss| %>
+				<%= image_tag @app.versions.last.screenshots[ss], "data-enlargable" => "true", id: "entrance", class: "screenshots show-card #{@app.versions.last.screenshots[ss].present?}"  %>
+	     		<% end %>
+			</div>
+		</div>
+			
+	<p class="card-description">
+	 	<details style="font-size: 14px;">
+        <summary><%= @app.description[0, 30] %></summary>
+        <p style="font-size: 14px;">
+            <%= @app.description[30, @app.description.length - 1] %>
+        </p>
+        </details>
+	</p>
+
+	<strong style="font-size: 16px;">What is new</strong>
+
+	<p class="card-version-description">
+		<p style="font-size: 14px;"><%= "- " + @app.versions.last.description if @app.versions.present? %> </p> 
+	</p>
+
+	<hr width="100%" style="border-top: 1px solid grey;">
+
+	<strong style="font-size: 16px;">Additional information</strong>
+
+	<p class="card-created-at">
+		<p style="font-size: 14px;">Released on <span style="text-align: right;"><%= @app.versions.first.created_at.to_date if @app.versions.present? %></span></p>
+	</p>
+
+	<p class="card-version">
+		<p style="font-size: 14px;">Version - <%= @app.versions.last.code if @app.versions.present? %></p>
+	</p>
+
+	<p class="card-updated-at">
+		<p style="font-size: 14px;">Updated <%= distance_of_time_in_words_to_now(@app.versions.last.updated_at) + " ago" if @app.versions.present? %></p>
+	</p>
+
+	<p class="card-andriod-version">
+		<p style="font-size: 14px;">Minimal andriod version - <%= @app.versions.last.AndriodVersion %></p>
+	</p>
+
+		<hr width="100%" style="border-top: 1px solid grey;">	
+
+	<div class="previous-versions-web">
+		<p style="font-size: 16px; font-weight: bold;">Download previous versions</p>
+		<table class="table">
+			<% if @app.versions.count > 1 %>
+			<% (0...@app.versions.count-1).each do |previous_versions| %>
+			<tbody>
+				<tr>
+					<td><%= link_to @app.versions[previous_versions].name, @app[previous_versions] %>
+					</td>
+					<td><%= @app.versions[previous_versions].description %></td>
+					<td><%= @app.versions[previous_versions].created_at.to_date %></td>
+					<td><%= link_to 'Download', rails_blob_path(@app.versions[previous_versions].apk, disposition: :attachment), class: "link btn btn-primary" if @app.versions[previous_versions].apk.attached? %></td>
+				</tr>
+			</tbody>
+			<% end %>
+			<% else %>
+				<p style="font-size: 14px;">There is no previous versions yet.</p>
+			<% end %> 
+		</table>
+	</div>
+
+	<div class="previous-versions-mobile" style="text-align: center;">
+		<p style="font-size: 16px; font-weight: bold;">Download previous versions</p>
+		<% if @app.versions.count > 1 %>
+			<% (0...@app.versions.count-1).each do |previous_versions| %> 
+			<%= @app.versions[previous_versions].name %> <br>
+			<%= @app.versions[previous_versions].description %> <br>
+			<%= @app.versions[previous_versions].created_at.to_date %> <br>
+			<%= link_to 'Download', rails_blob_path(@app.versions[previous_versions].apk, disposition: :attachment), class: "link btn btn-primary" if @app.versions[previous_versions].apk.attached? %>
+			<hr width="100%" style="border-top: 1px solid grey;">
+			<% end %>
+		<% else %>
+			<p style="font-size: 14px;">There is no previous versions yet.</p>
+		<% end %> 
+	</div>
+
+</div>
+
+</div>
+
+<br>
+
+</body>
+</html>
+

@@ -1,0 +1,204 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+.header {
+	font-family: Aileron;
+	font-size: 25px;
+	margin: 10px;
+	display: block;
+	line-height: 1;
+}
+
+.app-status {
+	font-size: 18px;
+	color: white;
+	background-color: #FCAB35;
+	padding: 5px;
+	width: 150px;
+	height: auto;
+	border-radius: 3px;
+}
+
+.app-logo {
+	width: 120px;
+  	min-height: 100px;
+  	object-fit: cover;
+  	margin: 10px;
+}
+
+.app-name {
+	font-family: Raleway;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+	color: 	#FCAB35;
+	padding: 5px;
+	border-radius: 12px;
+	margin-bottom: -8px;
+}
+
+.app-sd {
+	font-size: 12px;
+	background-color: whitesmoke;
+	padding: 3px;
+	border-radius: 8px;
+	max-width: 100%;
+	height: 60px;
+	display: block;
+	display: -webkit-box;
+	line-height: 1.5;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.app-show-card {
+	width: 65%;
+	height: auto;
+	margin-left: 200px;
+}
+
+.app-index-card {
+	width: 85%;
+	height: auto;
+	margin-left: 90px;
+}
+
+@media screen and (max-width: 580px) {
+  .app-show-card {
+    width: 100%;
+    height: auto;
+    margin-left: 0px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .app-index-card {
+    width: 100%;
+    height: auto;
+    margin-left: 0px;
+  }
+}
+
+.c-logo {
+ 	width: 200px;
+ 	min-height: 40px;
+} 
+
+.c-logo-link:hover {
+	text-decoration: none;
+	background-color: whitesmoke;
+}
+
+ .nav-bg {
+ 	background-color: whitesmoke;
+ 	border-top: 4px solid #FCAB35;
+ 	border-bottom: 1px solid #e6e6ff;
+ }
+
+.logo {
+	width: 100px;
+  	min-height: 100px;
+  	border-radius: 5px;
+  	object-fit: cover;
+  	margin: 10px;
+}	
+
+.img {
+	padding: 10px;
+}
+
+@media screen and (max-width: 580px) {
+  .previous-versions-web {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .previous-versions-mobile {
+    display: none;
+  }
+}
+
+.show-card {
+	text-align: center;
+}
+
+.showcase {
+	border-radius: 12px;
+	border: 1px solid #FCAB35;
+	margin: 8px;
+}
+
+.screenshots {
+	width: 150px;
+	min-height: 210px;
+	transition: transform .2s;
+  /* line them up horizontally */
+  	display: center;
+  /* allow for scrolling */	
+  	overflow: visible;
+  /* make it smooth on iOS */
+  	-webkit-overflow-scrolling: touch;
+  	flex-shrink: 0;
+}	
+
+.ss-bg {
+	background-color: #ccccff;
+	padding: 10px;
+	text-align: center;
+	flex-shrink: 0;
+}
+
+.link {
+	color: white;
+	background-color: white;
+	transition: transform .2s;
+}
+
+.link-app > div {
+	color: #333333;
+	text-decoration: none;
+	min-height: 125px;
+}
+
+.link-app:hover {
+	background-color: white;
+	border-radius: 15px;
+}
+
+.apps {
+	background-color: white;
+	text-align: center;
+	width: 100%;
+	height: auto;
+	padding: 10px;
+}
+	
+.slider {
+  /* line them up horizontally */
+  display: center;
+  /* allow for scrolling */
+  overflow-x: auto;
+  /* make it smooth on iOS */
+  -webkit-overflow-scrolling: touch;
+}
+
+.slider > div {
+  /* make sure the width is honored */
+  flex-shrink: 0;
+}
