@@ -56,14 +56,24 @@
 	padding: 3px;
 	border-radius: 8px;
 	max-width: 100%;
-	height: 60px;
-	display: block;
-	display: -webkit-box;
+	height: 58px;
 	line-height: 1.5;
 	-webkit-line-clamp: 3;
 	-webkit-box-orient: vertical;
+	white-space: nowrap;
+	display: block;
 	overflow: hidden;
 	text-overflow: ellipsis;
+}
+
+.sd {
+	/*-webkit-line-clamp: 3;*/
+	/*-webkit-box-orient: vertical;*/
+	white-space: nowrap;
+	display: block;
+	/*white-space: nowrap;*/
+	/*overflow: hidden;*/
+	/*text-overflow: ellipsis;*/
 }
 
 .app-show-card {

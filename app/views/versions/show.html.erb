@@ -1,6 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Logo</strong>
+  <%= image_tag @version.image, disposition: "attachment" %>
+</p>
+
+<p>
+  <strong>screenshots</strong>
+  <% @version.screenshots.each do |ss| %>
+  <%= image_tag ss, disposition: "attachment", class: "screenshots", "data-enlargable" => true %>
+  <% end %>
+</p>
+
+<p>
 	<strong>Versin ID</strong>
 	<%= @version.id %>
 </p>
@@ -25,11 +37,8 @@
   <%= @version.app.name %>
 </p>
 
-<p>
-  <strong>File</strong> 
-  <%= rails_blob_path(@version.apk, disposition: "attachment") if @version.apk.attached? %>
-  <%= @version.apk.download if @version.apk.attached? %>
-</p>
+
+
 
 <%= link_to 'Edit', edit_version_path(@version) %> |
 <%= link_to 'Back', versions_path %>

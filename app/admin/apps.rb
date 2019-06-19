@@ -25,11 +25,28 @@ index do
 		link_to(name.name, admin_app_path(name))
 	end
 
-	column('Short Description') { |sd| sd.shortdescription }
+	column 'Short description' do |sd|
+		sd.shortdescription
+	end
+
 	
 	column :is_public
 	column :user
 	
+end
+
+show do
+	attributes_table do 
+		row :name
+		row :user
+		row 'Short description' do |sd|
+			sd.shortdescription
+		end
+		row :description
+		row :is_public
+		row :versions
+		row :created_at
+	end
 end
 
 config.filters = false

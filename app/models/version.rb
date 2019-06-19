@@ -17,5 +17,6 @@ class Version < ApplicationRecord
 
   validates :apk, presence: true
   validates :image, presence: true, blob: { content_type: :image }
+  validates :screenshots, presence: true, blob: { content_type: :image }
 
 end

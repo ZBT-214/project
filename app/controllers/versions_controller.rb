@@ -27,7 +27,7 @@ class VersionsController < ApplicationController
   def create
     @version = Version.new(version_params)
     @version.image.attach(params[:version][:image]) 
-    @version.screenshots.attach(params[:version][:screenshots[]])
+    @version.screenshots.attach(params[:version][:screenshots])
 
     respond_to do |format|
       if @version.save
@@ -72,6 +72,6 @@ class VersionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def version_params
-      params.require(:version).permit(:name, :code, :description, :apk, :image, :screenshots [], :app_id)
+      params.require(:version).permit(:name, :code, :description, :apk, :image, :app_id, screenshots: [])
     end
 end

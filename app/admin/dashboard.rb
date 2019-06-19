@@ -2,29 +2,59 @@ ActiveAdmin.register_page "Dashboard" do
   menu priority: 1, label: proc { I18n.t("active_admin.dashboard") }
 
   content title: proc { I18n.t("active_admin.dashboard") } do
-    div class: "blank_slate_container", id: "dashboard_default_message" do
-      span class: "blank_slate" do
-        span I18n.t("active_admin.dashboard_welcome.welcome")
-        small I18n.t("active_admin.dashboard_welcome.call_to_action")
-      end
-    end
+    br
+        div text_align: :center
         columns do 
-            column do
+            column max_width: "400px" do
                 panel "Recent Apps" do
-                    ul do
+                        attributes_table_for 'Apps' do
                         App.last(5).map do |app|
-                            li link_to(app.name, admin_app_path(app))
+                            columns link_to(app.name, admin_app_path(app))
                         end
                     end
+                    br
                 end
             end
-            column do 
-                panel "Recent users"
-                table_for  User.last(5).each do |user|
-                    column { |user| link_to(user.email, admin_user_path(user)) }
+            br
+
+            column max_width: "400px" do 
+                panel "Recent users" do
+                    attributes_table_for 'Users' do
+                        User.last(5).each do |user|
+                            columns link_to(user.email, admin_user_path(user))
+                        end
+                    end
+                    br
                 end
             end
-        end
+            br
+
+
+            column max_width: "400px;" do
+                panel "Recent version updates" do
+                attributes_table_for 'Versions' do
+                        Version.last(5).each do |version|
+                            columns link_to(version.name, admin_version_path(version))
+                        end
+                    end
+                br
+                end
+            end
+            br
+
+            column max_width: "400px;" do
+            panel "Recent Users" do
+                attributes_table_for "User" do 
+                        User.last(5).map do |user|
+                            columns link_to(user.email, admin_user_path(user))
+                        end
+                    end
+                br
+                end
+            end
+    end
+    br
+
 
     
 

@@ -9,7 +9,7 @@
 <div class="card app-show-card">
 
 <div class="card-img-top show-card">
-	<%= image_tag(@app.versions.last.image, class: 'logo')  if @app.versions.last.image.attached? %> <br>
+	<%= image_tag(@app.versions.last.image, class: 'logo')  if @app.versions.last.image.present? %> <br>
 	<p style="font-family: Raleway; font-size: 18px; font-weight: 550"><%= @app.name %></p> <br> <br>
 	<div>
 		<%= link_to 'Download', rails_blob_path(@app.versions.last.apk, disposition: :attachment), class: "link btn btn-primary" if @app.versions.last.apk.attached? %>
@@ -19,8 +19,8 @@
 <div class="card-body">
 		<div class="row slider">
 			<div class="ss">
-				<%	 (0...@app.versions.last.screenshots.count).each do |ss| %>
-				<%= image_tag @app.versions.last.screenshots[ss], "data-enlargable" => "true", id: "entrance", class: "screenshots show-card #{@app.versions.last.screenshots[ss].present?}"  %>
+				<% @app.versions.last.screenshots.each do |ss| %>
+				<%= image_tag(ss, class: 'screenshots',"data-enlargable" => "true") %>  
 	     		<% end %>
 			</div>
 		</div>
@@ -69,7 +69,7 @@
 			<% (0...@app.versions.count-1).each do |previous_versions| %>
 			<tbody>
 				<tr>
-					<td><%= link_to @app.versions[previous_versions].name, @app[previous_versions] %>
+					<td><%= @app.versions[previous_versions].name %>
 					</td>
 					<td><%= @app.versions[previous_versions].description %></td>
 					<td><%= @app.versions[previous_versions].created_at.to_date %></td>
@@ -83,8 +83,9 @@
 		</table>
 	</div>
 
+		<p style="font-size: 14px; font-weight: bold;">Download previous versions</p>
+
 	<div class="previous-versions-mobile" style="text-align: center;">
-		<p style="font-size: 16px; font-weight: bold;">Download previous versions</p>
 		<% if @app.versions.count > 1 %>
 			<% (0...@app.versions.count-1).each do |previous_versions| %> 
 			<%= @app.versions[previous_versions].name %> <br>

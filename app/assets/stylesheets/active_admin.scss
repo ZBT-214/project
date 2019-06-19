@@ -7,17 +7,27 @@
 // For example, to change the sidebar width:
 // $sidebar-width: 242px;
 
+
 // Active Admin's got SASS!
 	$width: 100px;
 	$height: 100px;
 	$radius: 2px;
 	$fit: cover;
 
+
 .admin-logo {
 	width: $width;
 	height: $height;
 	radius: $radius;
 	fit: $fit;
+}
+
+.admin-screenshots {
+	
+}
+
+div {
+	display: row;
 }
 
 $am-theme-primary: #008AB8;
@@ -29,3 +39,4 @@ $am-theme-accent: #6BDCFF;
 // For example, to change the default status-tag color:
 //
 //   .status_tag { background: #6090DB; }
+

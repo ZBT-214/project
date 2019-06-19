@@ -1,4 +1,6 @@
 ActiveAdmin.register Version do
+
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
@@ -11,10 +13,12 @@ ActiveAdmin.register Version do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
+
+actions :all
 filter :app
 
 index do 
-	selectable_column
+	selectable_column	
 	column :app
 	column :name do |name|
 		link_to(name.name, admin_version_path(name))
@@ -36,17 +40,30 @@ show do
 		row 'Logo' do |logo|
 			image_tag logo.image, class: "admin-logo"
 		end	
+
+		# <% @app.versions.last.screenshots.each do |ss| %>
+		# 		<%= image_tag(ss, class: 'screenshots',"data-enlargable" => "true") %>  
+	 #     		<% end %>
+	 # 	row Version.last.screenshots.each do |ss|
+		# 	  image_tag url_for(ss), class: 'screenshots', "data-enlargable" => true
+		# end
+
+		row :screenshots do |ss|
+			ss.screenshots.map do |x|
+			url = Rails.application.routes.url_helpers.url_for(x)
+			# raw("<img src='#{url}' class='screenshots'></img>")
+			raw image_tag url_for(x), class: "admin-screenshots"
+			end 
+		end
 		
 		# row 'screenshots' do |ss|
 		# 	url = url_for(ss.screenshots), class: "screenshots"
 		# 	raw("<img src='#{url}'></img>")
 		# end
-
-		row :screenshots
 		
+		row :app
 		row :name 
 		row :code
-		row :app
 		row :description
 		row "Andriod_Version" do 
 			Version.last.AndriodVersion
