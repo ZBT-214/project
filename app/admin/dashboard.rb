@@ -4,12 +4,12 @@ ActiveAdmin.register_page "Dashboard" do
   content title: proc { I18n.t("active_admin.dashboard") } do
     br
         div text_align: :center
-        columns do 
-            column max_width: "400px" do
+        columns class: "dashboard-shortcut" do 
+            column max_width: "200px", class: "dash" do
                 panel "Recent Apps" do
                         attributes_table_for 'Apps' do
                         App.last(5).map do |app|
-                            columns link_to(app.name, admin_app_path(app))
+                            columns link_to(app.name, admin_app_path(app), class: "dashboard")
                         end
                     end
                     br
@@ -17,24 +17,11 @@ ActiveAdmin.register_page "Dashboard" do
             end
             br
 
-            column max_width: "400px" do 
-                panel "Recent users" do
-                    attributes_table_for 'Users' do
-                        User.last(5).each do |user|
-                            columns link_to(user.email, admin_user_path(user))
-                        end
-                    end
-                    br
-                end
-            end
-            br
-
-
-            column max_width: "400px;" do
+            column max_width: "200px;", class: "dash" do
                 panel "Recent version updates" do
                 attributes_table_for 'Versions' do
                         Version.last(5).each do |version|
-                            columns link_to(version.name, admin_version_path(version))
+                            columns link_to(version.name + " for #{version.app.name}", admin_version_path(version), class: "dashboard")
                         end
                     end
                 br
@@ -42,11 +29,11 @@ ActiveAdmin.register_page "Dashboard" do
             end
             br
 
-            column max_width: "400px;" do
+            column max_width: "200px;", class: "dash" do
             panel "Recent Users" do
                 attributes_table_for "User" do 
                         User.last(5).map do |user|
-                            columns link_to(user.email, admin_user_path(user))
+                            columns link_to(user.email, admin_user_path(user), class: "dashboard")
                         end
                     end
                 br

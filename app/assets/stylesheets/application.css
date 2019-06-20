@@ -14,10 +14,22 @@
  *= require_self
  */
 
+ .login-form {
+ 	display: 80%;
+ 	margin-top: 20px;
+ 	margin-bottom: 15px;
+ }
+
+ .session-link {
+ 	text-decoration: none;
+ 	color: black;
+ }
+
 .header {
 	font-family: Aileron;
-	font-size: 25px;
-	margin: 10px;
+	font-size: 20px;
+	margin-left: 15px;
+	margin-top: 15px;
 	display: block;
 	line-height: 1;
 }
@@ -72,14 +84,14 @@
 	white-space: nowrap;
 	display: block;
 	/*white-space: nowrap;*/
-	/*overflow: hidden;*/
+	/*overflow: hidden;*/	
 	/*text-overflow: ellipsis;*/
 }
 
 .app-show-card {
-	width: 65%;
+	width: 60%;
 	height: auto;
-	margin-left: 200px;
+	margin-left: 220px;
 }
 
 .app-index-card {
@@ -92,7 +104,7 @@
   .app-show-card {
     width: 100%;
     height: auto;
-    margin-left: 0px;
+    margin-left: 20px;
   }
 }
 
@@ -100,13 +112,13 @@
   .app-index-card {
     width: 100%;
     height: auto;
-    margin-left: 0px;
+    margin-left: 20px;
   }
 }
 
 .c-logo {
  	width: 200px;
- 	min-height: 40px;
+ 	height: auto;
 } 
 
 .c-logo-link:hover {
@@ -116,7 +128,7 @@
 
  .nav-bg {
  	background-color: whitesmoke;
- 	border-top: 4px solid #FCAB35;
+ 	border-top: 3px solid #FCAB35;
  	border-bottom: 1px solid #e6e6ff;
  }
 
@@ -138,7 +150,7 @@
   }
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 650px) {
   .previous-versions-mobile {
     display: none;
   }
@@ -167,17 +179,12 @@
   	flex-shrink: 0;
 }	
 
-.ss-bg {
-	background-color: #ccccff;
-	padding: 10px;
-	text-align: center;
-	flex-shrink: 0;
-}
 
 .link {
 	color: white;
 	background-color: white;
 	transition: transform .2s;
+	text-decoration: none;
 }
 
 .link-app > div {

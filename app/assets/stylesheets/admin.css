@@ -1,0 +1,47 @@
+.admin-logo {
+	width: 80px;
+  	min-height: 80px;
+  	border-radius: 5px;
+  	object-fit: cover;
+  	margin: 10px;
+}	
+
+.dashboard-shortcut {
+	display: flex;
+}
+
+.admin-screenshots {
+	width: 150px;
+	min-height: 210px;
+	transition: transform .2s;
+  /* line them up horizontally */
+  	display: center;
+  /* allow for scrolling */	
+  	overflow: visible;
+  /* make it smooth on iOS */
+  	-webkit-overflow-scrolling: touch;
+  	flex-shrink: 0;
+}	
+
+.slider {
+  /* line them up horizontally */
+  display: center;
+  /* allow for scrolling */
+  overflow-x: auto;
+  /* make it smooth on iOS */
+  -webkit-overflow-scrolling: touch;
+}
+
+.slider-ss{
+  /* make sure the width is honored */
+  flex-shrink: 0;
+}
+
+.dash {
+	margin-left: 20px;
+	border: 1px solid #008AB8;
+}
+
+.dashboard {
+	margin-left: 20px;
+}

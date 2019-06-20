@@ -47,14 +47,18 @@ show do
 	 # 	row Version.last.screenshots.each do |ss|
 		# 	  image_tag url_for(ss), class: 'screenshots', "data-enlargable" => true
 		# end
-
+		
 		row :screenshots do |ss|
+			raw("<div class='container'><div class='row slider'><div>")
 			ss.screenshots.map do |x|
+
 			url = Rails.application.routes.url_helpers.url_for(x)
-			# raw("<img src='#{url}' class='screenshots'></img>")
-			raw image_tag url_for(x), class: "admin-screenshots"
+			raw("<div class='slider-ss' ><img src='#{url}' class='admin-screenshots',  data-enlargable true ></img></div>")
+			# raw image_tag url_for(x), class: "admin-screenshots"	
 			end 
+			raw("</div></div></div>")
 		end
+		
 		
 		# row 'screenshots' do |ss|
 		# 	url = url_for(ss.screenshots), class: "screenshots"
