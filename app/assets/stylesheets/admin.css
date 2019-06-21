@@ -11,11 +11,11 @@
 }
 
 .admin-screenshots {
-	width: 150px;
-	min-height: 210px;
-	transition: transform .2s;
+	 width: 100px;
+	 min-height: 180px;
+	 transition: transform .2s;
   /* line them up horizontally */
-  	display: center;
+    display: center;
   /* allow for scrolling */	
   	overflow: visible;
   /* make it smooth on iOS */
@@ -42,6 +42,13 @@
 	border: 1px solid #008AB8;
 }
 
+.dash-title {
+  font-size: 14px;
+  color: white;
+  background-color: #008AB8;
+  margin-left: 5px;
+}
+
 .dashboard {
-	margin-left: 20px;
+	margin-left: 5px;
 }

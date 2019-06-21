@@ -1,4 +1,11 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <p id="notice"><%= notice %></p>
 
 <div class="header">
    Apps <br> <br>
@@ -32,8 +39,8 @@
   </div>
 
 <hr width="100%" style="border-top: 1px solid #1D65A6">
-
 <div><p class="app-status">Public Apps</p></div>
+
 <div class="row"> 
   <% @public_apps = @apps - current_user.apps %>
   <% @public_apps.each do |app| %>
@@ -83,3 +90,6 @@
 <br>
 
 
+
+</body>
+</html>

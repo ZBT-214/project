@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="row slider">
+	<div>
+		<% @app.versions.last.screenshots.each do |ss| %>
+		<%= image_tag(ss, class: 'admin-screenshots',"data-enlargable" => "true") %>  
+	   	<% end %>
+	</div>
+</div>
+</body>
+</html>

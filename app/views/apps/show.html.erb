@@ -19,7 +19,7 @@
 
 <div class="card-body">
 		<div class="row slider">
-			<div class="ss">
+			<div>
 				<% @app.versions.last.screenshots.each do |ss| %>
 				<%= image_tag(ss, class: 'screenshots',"data-enlargable" => "true") %>  
 	     		<% end %>
@@ -28,7 +28,7 @@
 			
 	<p class="card-description">
 	 	<details style="font-size: 14px;">
-        <summary><%= @app.description[0, 30] %></summary>
+        <summary><%= @app.description[0, 100] %></summary>
         <p style="font-size: 14px;">
             <%= @app.description[30, @app.description.length - 1] %>
         </p>
@@ -64,7 +64,7 @@
 		<hr width="100%" style="border-top: 1px solid grey;">	
 
 	<div class="previous-versions-web">
-		<p style="font-size: 16px; font-weight: bold;">Download previous versions</p>
+		<strong style="font-size: 16px;">Download previous versions</strong>
 		<table class="table">
 			<% if @app.versions.count > 1 %>
 			<% (0...@app.versions.count-1).each do |previous_versions| %>
@@ -84,10 +84,11 @@
 		</table>
 	</div>
 
-		
 
 	<div class="previous-versions-mobile" style="text-align: center;">
-		<p style="font-size: 14px; font-weight: bold;">Download previous versions</p>
+		<div style="text-align: left;">
+			<strong style="font-size: 16px;">Download previous versions</strong>
+		</div>
 		<% if @app.versions.count > 1 %>
 			<% (0...@app.versions.count-1).each do |previous_versions| %> 
 			<%= @app.versions[previous_versions].name %> <br>

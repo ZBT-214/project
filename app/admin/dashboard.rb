@@ -6,7 +6,8 @@ ActiveAdmin.register_page "Dashboard" do
         div text_align: :center
         columns class: "dashboard-shortcut" do 
             column max_width: "200px", class: "dash" do
-                panel "Recent Apps" do
+                span "Recent Apps", class: "dash-title" do
+                    br 
                         attributes_table_for 'Apps' do
                         App.last(5).map do |app|
                             columns link_to(app.name, admin_app_path(app), class: "dashboard")
@@ -18,7 +19,8 @@ ActiveAdmin.register_page "Dashboard" do
             br
 
             column max_width: "200px;", class: "dash" do
-                panel "Recent version updates" do
+                span "Recent version updates", class: "dash-title" do
+                    br
                 attributes_table_for 'Versions' do
                         Version.last(5).each do |version|
                             columns link_to(version.name + " for #{version.app.name}", admin_version_path(version), class: "dashboard")
@@ -30,7 +32,8 @@ ActiveAdmin.register_page "Dashboard" do
             br
 
             column max_width: "200px;", class: "dash" do
-            panel "Recent Users" do
+            span "Recent Users", class: "dash-title" do
+                br
                 attributes_table_for "User" do 
                         User.last(5).map do |user|
                             columns link_to(user.email, admin_user_path(user), class: "dashboard")

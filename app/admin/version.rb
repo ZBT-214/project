@@ -47,16 +47,18 @@ show do
 	 # 	row Version.last.screenshots.each do |ss|
 		# 	  image_tag url_for(ss), class: 'screenshots', "data-enlargable" => true
 		# end
-		
+		div
 		row :screenshots do |ss|
-			raw("<div class='container'><div class='row slider'><div>")
-			ss.screenshots.map do |x|
-
-			url = Rails.application.routes.url_helpers.url_for(x)
-			raw("<div class='slider-ss' ><img src='#{url}' class='admin-screenshots',  data-enlargable true ></img></div>")
-			# raw image_tag url_for(x), class: "admin-screenshots"	
-			end 
-			raw("</div></div></div>")
+			th do
+					ss.screenshots.each do |x|
+				# url = Rails.application.routes.url_helpers.url_for(x)
+					td do
+						image_tag Rails.application.routes.url_helpers.url_for(x), class: "admin-screenshots slider-ss", "data-enlargable" => "true" 
+					end
+			# <img src='#{url}' class='admin-screenshots',  data-enlargable true ></img>
+			# raw image_tag url_for(x), class: "admin-screenshots"  	
+					end
+			end
 		end
 		
 		
@@ -72,6 +74,8 @@ show do
 		row "Andriod_Version" do 
 			Version.last.AndriodVersion
 		end
+		row :crated_at
+		row :updated_at
 	end
 end
 
