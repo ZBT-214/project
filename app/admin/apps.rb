@@ -57,11 +57,11 @@ form partial: 'form'
 form do |f|
 	f.semantic_errors *f.object.errors.keys
     f.inputs "App" do  
-      f.inputs :name
-      f.inputs :description
-      f.inputs :shortdescription
-      f.inputs :is_public
-      f.inputs :user
+      f.input :name
+      f.input :description
+      f.input :shortdescription, label: "Short description"
+      f.input :is_public
+      f.input :user
     end
     f.actions
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_13_073034) do
+ActiveRecord::Schema.define(version: 2019_06_24_105330) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 2019_06_13_073034) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "description"
-    t.integer "AndriodVersion"
+    t.float "AndriodVersion"
     t.index ["app_id"], name: "index_versions_on_app_id"
   end
 

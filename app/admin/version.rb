@@ -29,14 +29,6 @@ end
 
 show do
 	attributes_table do 
-		# row :logo do |logo|
-		# 	url = url_for(logo.image)
-		# 	raw("<img class='admin-logo' src='#{url}'></img>")
-		# end
-		# row :screenshots do |ss|
-		# 	url = url_for(ss.screenshots)
-		# 	raw("<img src='#{url}'></img>")
-		# end
 		row 'Logo' do |logo|
 			image_tag logo.image, class: "admin-logo"
 		end	
@@ -47,20 +39,19 @@ show do
 	 # 	row Version.last.screenshots.each do |ss|
 		# 	  image_tag url_for(ss), class: 'screenshots', "data-enlargable" => true
 		# end
-		div
+		div class: "admin-screenshots"
 		row :screenshots do |ss|
-			th do
-					ss.screenshots.each do |x|
-				# url = Rails.application.routes.url_helpers.url_for(x)
+			ul columns: 5 do
+				ss.screenshots.each do |x|
 					td do
 						image_tag Rails.application.routes.url_helpers.url_for(x), class: "admin-screenshots slider-ss", "data-enlargable" => "true" 
 					end
 			# <img src='#{url}' class='admin-screenshots',  data-enlargable true ></img>
 			# raw image_tag url_for(x), class: "admin-screenshots"  	
-					end
+				end
 			end
 		end
-		
+			
 		
 		# row 'screenshots' do |ss|
 		# 	url = url_for(ss.screenshots), class: "screenshots"
@@ -74,7 +65,7 @@ show do
 		row "Andriod_Version" do 
 			Version.last.AndriodVersion
 		end
-		row :crated_at
+		row :created_at
 		row :updated_at
 	end
 end
@@ -84,13 +75,13 @@ permit_params :name, :code, :description, :AndriodVersion, :apk,:image, :app_id,
 form partial: 'form'
 form do |f|
     f.inputs "Version" do
-      f.inputs :app
-      f.inputs :name, url: admin_versions_path, fields: [:version_last_name]
-      f.inputs :code
-      f.inputs :AndriodVersion
-      f.inputs :description
+      f.input :app
+      f.input :name
+      f.input :code
+      f.input :AndriodVersion, label: "Minimal  andriod version"
+      f.input :description
       f.input :apk, as: :file
-      f.input :image, as: :file
+      f.input :image, as: :file, label: "Logo"
       f.input :screenshots, as: :file, input_html: { multiple: true }
       end
     f.actions

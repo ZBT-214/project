@@ -5,7 +5,6 @@
   <title>Document</title>
 </head>
 <body>
-  <p id="notice"><%= notice %></p>
 
 <div class="header">
    Apps <br> <br>
@@ -38,8 +37,9 @@
   <% end %>
   </div>
 
-<hr width="100%" style="border-top: 1px solid #1D65A6">
-<div><p class="app-status">Public Apps</p></div>
+<hr width="100%" style="border-top: 1px solid #F4CC70">
+
+    <div><p class="app-status">Public Apps</div>
 
 <div class="row"> 
   <% @public_apps = @apps - current_user.apps %>
@@ -75,7 +75,7 @@
           </p>
           <p class="card-text app-sd">
           <%= app.shortdescription %>
-          </p>
+          </p>    
         </div>
         <% end %>
       </div>

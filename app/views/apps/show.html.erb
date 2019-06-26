@@ -5,7 +5,6 @@
 	<title>Document</title>
 </head>
 <body>
-	<p id="notice"><%= notice %></p>
 	<br>
 <div class="card app-show-card">
 
@@ -28,12 +27,13 @@
 			
 	<p class="card-description">
 	 	<details style="font-size: 14px;">
-        <summary><%= @app.description[0, 100] %></summary>
+        <summary><span style="font-size: 15px;"><%= @app.description[0, 90] %></span></summary>
         <p style="font-size: 14px;">
             <%= @app.description[30, @app.description.length - 1] %>
         </p>
         </details>
 	</p>
+	<br>
 
 	<strong style="font-size: 16px;">What is new</strong>
 
@@ -54,7 +54,7 @@
 	</p>
 
 	<p class="card-updated-at">
-		<p style="font-size: 14px;">Updated <%= distance_of_time_in_words_to_now(@app.versions.last.updated_at) + " ago" if @app.versions.present? %></p>
+		<p style="font-size: 14px;">Updated <%= distance_of_time_in_words_to_now(@app.versions.last.updated_at.strftime("%FT%T")) + " ago" if @app.versions.present? %></p>
 	</p>
 
 	<p class="card-andriod-version">
